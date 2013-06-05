@@ -1,0 +1,46 @@
+{
+  "name": "specialize",
+  "version": "0.0.0",
+  "description": "Partial function evaluator",
+  "main": "specialize.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {
+    "falafel": "~0.2.1",
+    "generic-slice": "~0.0.1",
+    "lexical-scope": "~0.0.12",
+    "uniq": "~0.0.2"
+  },
+  "devDependencies": {
+    "tape": "~1.0.2"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/specialize.git"
+  },
+  "keywords": [
+    "special",
+    "partial",
+    "evaluate",
+    "optimize",
+    "meta",
+    "programming",
+    "run",
+    "time",
+    "bind",
+    "apply",
+    "magic"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "78855991546e63dd26bee23289e93cb1de0b1e06",
+  "bugs": {
+    "url": "https://github.com/mikolalysenko/specialize/issues"
+  }
+}

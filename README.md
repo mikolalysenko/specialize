@@ -42,3 +42,6 @@ Optimizes `func` by binding static values from arguments to the scope of functio
 Because objects have properties that can change over time this code doesn't support inlining objects.  If you do pass an object it gets bound dynamically, just like calling bind() and so there isn't much benefit to this library.  It is also possible to inline functions which use variables from their outside scope.  An exception is made for variables in the global namespace even though this is not technically correct (since they could be rebound in a shadowing closure).  This is a conscientious choice, and if you want to overload globals then you should just use bind().
 
 What it can do is inline constant values and *some* closures for well encapsulated functions, giving a substantial speed up with little loss of flexibility.
+
+## Credits
+(c) 2013 Mikola Lysenko. MIT License
