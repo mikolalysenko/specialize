@@ -1,6 +1,6 @@
 {
   "name": "specialize",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Partial function evaluator",
   "main": "specialize.js",
   "directories": {
