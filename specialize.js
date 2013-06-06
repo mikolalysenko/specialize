@@ -62,14 +62,16 @@ function specialize(func) {
   if(args.static_args.length === 0) {
     return func
   }
-  try {
+  //try {
     root = lift(func, ROOT_PREFIX, true)
+    /*
   } catch(e) {
     if(module.exports.debug) {
       console.warn("Bailing out: Could not specialize " + func.name + " - " + e.toString())
     }
     return dynamicBind(func, args)
   }
+  */
   
   //Try specializing each of the inputs sequentially
   var bailout_args = []
