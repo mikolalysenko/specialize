@@ -6,13 +6,16 @@ var specialize = require("../../specialize.js")
 function testSpecializer(t, func, args, inputs) {
   //First generate bound function
   function boundFunc() {
-    var local_args = genericSlice(arguments, 0)
+    var out = new Array(args.length)
+      , j = 0
     for(var i=0; i<args.length; ++i) {
       if(args[i] !== undefined) {
-        local_args[i] = args[i]
+        out[i] = args[i]
+      } else {
+        out[i] = arguments[j++]
       }
     }
-    return func.apply(this, local_args)
+    return func.apply(this, out)
   }
   
   //Next generate specialized function

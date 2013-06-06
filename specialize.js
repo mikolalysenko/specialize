@@ -63,7 +63,7 @@ function specialize(func) {
     return func
   }
   try {
-    root = lift(func, ROOT_PREFIX)
+    root = lift(func, ROOT_PREFIX, true)
   } catch(e) {
     console.warn("Bailing out: Could not specialize " + func.name + " - " + e.toString())
     return dynamicBind(func, args)
@@ -73,7 +73,7 @@ function specialize(func) {
   var bailout_args = []
   var bailout_vals = []
   for(var i=0; i<args.static_args.length; ++i) {
-    //try {
+    try {
       switch(typeof args.static_vals[i]) {
         case "number":
         case "boolean":
@@ -86,15 +86,13 @@ function specialize(func) {
         break
         
         default:
-          throw new Error("Object inlining not supported")
+          throw new Error("Object i nlining not supported")
       }
-      /*
     } catch(e) {
       console.warn("Bail out when specializing argument " + i + " - " + e)
       bailout_args.push(args.static_args[i])
       bailout_vals.push(args.static_vals[i])
     }
-    */
   }
   
   //Assemble result
@@ -104,8 +102,9 @@ function specialize(func) {
     "return " + root.ret
   ].join("\n")
   
+  
+  
   if(bailout_args.length === 0) {
-    console.log(body)
     return Function.apply(undefined, [].concat(args.dynamic_args).concat([body]))
   } else {
     body = [ "return function ", func.name, "(", args.dynamic_args.join(","), "){ ", body, "}"].join("")
