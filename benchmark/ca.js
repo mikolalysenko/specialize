@@ -1,7 +1,7 @@
 "use strict"
 
 var GRID_SIZE = 64 * 1024
-var ITERS     = 10000
+var ITERS     = 45000
 
 //A generic 1D cellular automata implementation
 function updateCA(rule, state, next_state) {
@@ -42,7 +42,7 @@ function runBenchmark(name, func) {
     func(state1, state0)
   }
   var elapsed = Date.now() - start
-  console.log("Time for", name, "---", elapsed)
+  console.log("Time for", name, "---", elapsed, "ms")
 }
 
 //Run the different cases
