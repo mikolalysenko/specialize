@@ -105,6 +105,7 @@ function specialize(func) {
   ].join("\n")
   
   if(bailout_args.length === 0) {
+    console.log(body)
     return Function.apply(undefined, [].concat(args.dynamic_args).concat([body]))
   } else {
     body = [ "return function ", func.name, "(", args.dynamic_args.join(","), "){ ", body, "}"].join("")
