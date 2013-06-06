@@ -86,7 +86,7 @@ function specialize(func) {
         break
         
         default:
-          throw new Error("Object i nlining not supported")
+          throw new Error("Object inlining not supported")
       }
     } catch(e) {
       console.warn("Bail out when specializing argument " + i + " - " + e)
@@ -99,10 +99,9 @@ function specialize(func) {
   var body = [
     "var " + root.vars.join(","),
     root.body,
-    "return " + root.ret
   ].join("\n")
   
-  
+  console.log(body)
   
   if(bailout_args.length === 0) {
     return Function.apply(undefined, [].concat(args.dynamic_args).concat([body]))
